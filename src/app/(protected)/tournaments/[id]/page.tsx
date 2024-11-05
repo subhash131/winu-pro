@@ -1,4 +1,4 @@
-import TournamentForm from "@/components/tournaments/tournament-form";
+import TournamentForm from "@/components/tournaments/form";
 import React from "react";
 
 const NewTournamentPage = () => {
