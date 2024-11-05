@@ -1,4 +1,4 @@
-import Logo from "@/components/logo";
+import Logo from "@/components/ui/logo";
 import React from "react";
 import { FaImage } from "react-icons/fa";
 

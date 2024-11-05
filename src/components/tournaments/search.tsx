@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { BiSearch } from "react-icons/bi";
 import { GiBeveledStar } from "react-icons/gi";
-import Logo from "../logo";
+import Logo from "../ui/logo";
 
 const Search = () => {
   return (
