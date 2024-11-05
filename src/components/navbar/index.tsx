@@ -2,6 +2,7 @@ import React from "react";
 import { FaGamepad, FaUserAstronaut } from "react-icons/fa";
 import { HiMiniHome } from "react-icons/hi2";
 import NavItem from "./nav-item";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 const items = [
   {
@@ -40,6 +41,12 @@ const Navbar = () => {
             </NavItem>
           );
         })}
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </nav>
     </div>
   );
