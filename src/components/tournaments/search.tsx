@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { BiSearch } from "react-icons/bi";
 import { GiBeveledStar } from "react-icons/gi";
+import Logo from "../logo";
 
 const Search = () => {
   return (
@@ -13,10 +14,7 @@ const Search = () => {
         className="rounded-full border-active text-nowrap bg-purple px-4 py-1.5 text-xs flex items-center
        justify-center gap-1 active:scale-95 transition-all"
       >
-        <GiBeveledStar
-          size={20}
-          className="animate-spin [animation-duration:5s]"
-        />
+        <Logo className="animate-spin [animation-duration:5s]" />
         Host a tournament
       </Link>
       <div className="w-full flex items-center justify-end gap-2">
