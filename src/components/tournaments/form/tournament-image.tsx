@@ -1,6 +1,6 @@
 import Logo from "@/components/logo";
 import React from "react";
-import { MdOutlineFileUpload } from "react-icons/md";
+import { FaImage } from "react-icons/fa";
 
 const TournamentImage = () => {
   return (
@@ -11,7 +11,7 @@ const TournamentImage = () => {
         type="file"
       />
       <div className="size-12 rounded-full border border-active absolute bottom-4 right-4 pointer-events-none flex items-center justify-center text-gray-400">
-        <MdOutlineFileUpload size={22} />
+        <FaImage size={22} />
       </div>
     </div>
   );

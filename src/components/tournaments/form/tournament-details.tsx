@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Visibility from "./visibility";
+import Schedule from "./schedule";
 
 const TournamentDetails = () => {
   const [name, setName] = useState<string>("");
@@ -14,6 +15,7 @@ const TournamentDetails = () => {
         className="text-5xl bg-transparent outline-none font-semibold"
         placeholder="Tournament Name"
       />
+      <Schedule />
     </div>
   );
 };
