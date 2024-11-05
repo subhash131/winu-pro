@@ -25,6 +25,18 @@ export default function RootLayout({
         variables: {
           colorBackground: "#111111",
         },
+        signIn: {
+          baseTheme: dark,
+          variables: {
+            colorBackground: "#111111",
+          },
+        },
+        signUp: {
+          baseTheme: dark,
+          variables: {
+            colorBackground: "#111111",
+          },
+        },
       }}
     >
       <html lang="en">
