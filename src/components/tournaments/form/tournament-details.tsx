@@ -4,6 +4,7 @@ import Visibility from "./visibility";
 import Schedule from "./schedule";
 import TournamentName from "./tournament-name";
 import TournamentDescription from "./tournament-description";
+import CreateButton from "./create-button";
 
 const TournamentDetails = () => {
   const [name, setName] = useState<string>("");
@@ -12,7 +13,7 @@ const TournamentDetails = () => {
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
   return (
-    <div className="size-full flex flex-col gap-2">
+    <div className="size-full flex flex-col gap-2 pb-20">
       <Visibility setVisibility={setVisibility} visibility={visibility} />
       <TournamentName name={name} setName={setName} />
       <Schedule
@@ -25,6 +26,8 @@ const TournamentDetails = () => {
         description={description}
         setDescription={setDescription}
       />
+      {/* TODO:: add teams */}
+      <CreateButton />
     </div>
   );
 };
