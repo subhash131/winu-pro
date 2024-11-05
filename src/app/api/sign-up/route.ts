@@ -31,16 +31,16 @@ export async function POST(req: NextRequest, res: NextResponse) {
       name,
     });
     const savedUser = await newUser.save();
-    console.log(savedUser);
-
     // send verification email
     await sendEmail({
       emailType: "VERIFY",
       to: email,
       userId: savedUser._id,
     });
+    const userWithoutPassword = savedUser.toObject();
+    delete userWithoutPassword.password;
     return NextResponse.json(
-      { message: "User Registered!", user: savedUser },
+      { message: "User Registered!", user: userWithoutPassword },
       { status: 201 }
     );
   } catch (e) {
