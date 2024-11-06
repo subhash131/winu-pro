@@ -2,6 +2,7 @@ import React from "react";
 import { FaGamepad, FaUserAstronaut } from "react-icons/fa";
 import { HiMiniHome } from "react-icons/hi2";
 import NavItem from "./nav-item";
+import UserProfile from "./user-profile";
 
 const items = [
   {
@@ -40,6 +41,7 @@ const Navbar = () => {
             </NavItem>
           );
         })}
+        <UserProfile />
       </nav>
     </div>
   );

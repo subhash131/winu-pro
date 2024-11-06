@@ -35,6 +35,9 @@ const Login = () => {
       if (res.status === 200) {
         toast.success("Login successful");
         router.push("/tournaments");
+      } else {
+        const data = await res.json();
+        toast.error(data.message);
       }
     });
   };
