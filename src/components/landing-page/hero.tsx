@@ -15,6 +15,7 @@ import {
   GiSwordsEmblem,
   GiWhistle,
 } from "react-icons/gi";
+import Logo from "../ui/logo";
 
 const Hero = () => {
   return (
@@ -58,15 +59,19 @@ const Hero = () => {
           />
         </div>
       </div>
-      <div className="w-full h-full gap-24 flex justify-center flex-col items-center absolute z-30 ">
-        <div className="w-[40rem] h-[18rem] relative flex flex-col gap-16 text-center items-center max-md:w-[20rem]">
+      <div className="w-full h-full gap-12 flex justify-center flex-col items-center absolute z-30 ">
+        <div className="w-[40rem] h-[18rem] relative flex flex-col gap-10 text-center items-center max-md:w-[20rem]">
           <div className="flex flex-col gap-4 max-md:gap-10 items-center ">
-            <p className="text-[2.8rem] leading-tight max-md:text-3xl">
-              I specialize in shaping the future of digital experiences!
+            <div className="bg-purple pl-2 pr-4 py-0.5 rounded-full font-semibold  flex items-center justify-center gap-1">
+              <Logo className="animate-spin [animation-duration:2s]" />
+              WINU
+            </div>
+            <p className="text-[2.8rem] leading-tight max-md:text-3xl font-semibold">
+              Compete, Conquer, Win⚔️
             </p>
-            <p className="text-sm text-[#cecece] w-96 leading-4 max-md:w-72">
-              Elevate your projects with cutting-edge front-end development
-              expertise.
+            <p className="text-sm text-[#cecece] leading-4 max-md:w-72">
+              Unleash your inner strategist, build your dream team, and <br />
+              win big with WINU!
             </p>
           </div>
 

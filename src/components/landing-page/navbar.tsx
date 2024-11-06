@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 import { GiMinigun } from "react-icons/gi";
 
@@ -17,10 +18,13 @@ const Navbar = () => {
         WINU
       </div>
       <div className="flex gap-10 ">
-        <button className="flex items-center justify-center gap-2 px-6 py-2 rounded-xl bg-[#222222] text-white font-semibold active:scale-95 transition-transform">
+        <Link
+          href="/register"
+          className="flex items-center justify-center gap-2 px-6 py-2 rounded-xl bg-[#222222] text-white font-semibold active:scale-95 transition-transform"
+        >
           <GiMinigun size={28} />
           Register
-        </button>
+        </Link>
       </div>
     </div>
   );
