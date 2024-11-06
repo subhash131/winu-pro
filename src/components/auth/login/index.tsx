@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import Header from "../header";
+import Footer from "../footer";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -75,6 +76,11 @@ const Login = () => {
               "Continue"
             )}
           </button>
+          <Footer
+            message="Don’t have an account?"
+            link="/register"
+            linkText="Register"
+          />
         </form>
       </div>
     </div>

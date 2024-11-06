@@ -16,6 +16,7 @@ import {
   GiWhistle,
 } from "react-icons/gi";
 import Logo from "../ui/logo";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -75,10 +76,13 @@ const Hero = () => {
             </p>
           </div>
 
-          <button className="px-6 py-2 rounded-xl bg-gray-100 text-black font-semibold active:scale-95 transition-transform flex items-center justify-center gap-2">
+          <Link
+            href="/login"
+            className="px-6 py-2 rounded-xl bg-gray-100 text-black font-semibold active:scale-95 transition-transform flex items-center justify-center gap-2"
+          >
             Login
             <GiShotgunRounds size={24} />
-          </button>
+          </Link>
         </div>
         <div
           className={` overflow-hidden relative w-[calc(100px*5)] max-md:w-[calc(50px*5)] before:bg-gradient-linear-to-r before:h-full before:w-[15%] before:z-10 before:absolute before:-right-4 before:top-0 after:absolute after:w-[15%] after:h-full after:bg-gradient-linear-to-l after:z-10 after:top-0 after:-left-4 whitespace-nowrap flex items-center h-5 ${styles.slide_wrap}`}

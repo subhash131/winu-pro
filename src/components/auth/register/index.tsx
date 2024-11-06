@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import Header from "../header";
+import Footer from "../footer";
 
 const Register = () => {
   const [displayname, setDisplayname] = useState("");
@@ -101,6 +102,11 @@ const Register = () => {
               "Continue"
             )}
           </button>
+          <Footer
+            message="Already have an account?"
+            link="/login"
+            linkText="Login"
+          />
         </form>
       </div>
     </div>
