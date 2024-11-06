@@ -5,12 +5,12 @@ import NavItem from "./nav-item";
 import UserProfile from "./user-profile";
 
 const items = [
-  {
-    name: "Home",
-    icon: HiMiniHome,
-    link: "/home",
-    iconSize: 20,
-  },
+  // {
+  //   name: "Home",
+  //   icon: HiMiniHome,
+  //   link: "/home",
+  //   iconSize: 20,
+  // },
   {
     name: "Tournaments",
     icon: FaGamepad,
@@ -27,7 +27,7 @@ const items = [
 
 const Navbar = () => {
   return (
-    <div className="fixed bottom-8 h-16 pointer-events-none flex w-full items-center justify-center">
+    <div className="fixed bottom-8 h-16 pointer-events-none flex w-full items-center justify-center z-50">
       <nav className="px-4 py-1.5 rounded-full bg-active flex items-center justify-center pointer-events-auto gap-1">
         {items.map(({ icon: Icon, link, name, iconSize }, idx) => {
           return (

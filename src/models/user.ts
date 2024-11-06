@@ -20,9 +20,14 @@ const userSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  image: {
+  profileImage: {
     type: String,
   },
+  coverImage: {
+    type: String,
+  },
+  numberOfTournamentsPlayed: { type: Number, default: 0 },
+  rank: { type: Number, default: 0 },
   forgotPasswordToken: String,
   forgotPasswordTokenExpiry: String,
   verifyToken: String,
