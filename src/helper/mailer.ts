@@ -40,8 +40,8 @@ export const sendEmail = async ({ to, emailType, text, userId }: SendEmail) => {
       subject,
       html,
     };
-    const res = transporter.sendMail(mailOptions);
-    console.log("🚀 ~ res:", res);
+    const res = await transporter.sendMail(mailOptions);
+    console.log("🚀 ~ sendEmail ~ res:", res);
   } catch (e) {
     console.log("Failed to send mail", e);
   }

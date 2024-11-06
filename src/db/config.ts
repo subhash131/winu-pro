@@ -6,6 +6,12 @@ export async function connect() {
     if (!MONGO_URI) {
       throw new Error("MONGO_URI not found!");
     }
+
+    if (mongoose.connection.readyState === 1) {
+      console.log("MongoDB is already connected.");
+      return;
+    }
+
     const { connection } = await mongoose.connect(MONGO_URI);
 
     connection.on("connected", () => {
