@@ -10,7 +10,7 @@ export function middleware(request: NextRequest) {
   const token = request.cookies.get("winu-token")?.value || "";
 
   if (isPublicPath && token) {
-    return NextResponse.redirect(new URL("/home", request.url));
+    return NextResponse.redirect(new URL("/tournaments", request.url));
   }
 
   if (!isPublicPath && !token) {
