@@ -10,7 +10,7 @@ const Search = () => {
     <div className="w-full h-20 flex items-center justify-between gap-2 border-active border-b px-10">
       <h1 className="text-xl font-semibold py-4 w-full">Tournaments</h1>
       <Link
-        href="/tournaments/new"
+        href="/tournament/create"
         className="rounded-full border-active text-nowrap bg-purple px-4 py-1.5 text-xs flex items-center
        justify-center gap-1 active:scale-95 transition-all"
       >

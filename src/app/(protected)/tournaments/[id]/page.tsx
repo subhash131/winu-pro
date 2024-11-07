@@ -1,8 +1,7 @@
-import TournamentForm from "@/components/tournaments/form";
 import React from "react";
 
-const NewTournamentPage = () => {
-  return <TournamentForm />;
+const TournamentPage = () => {
+  return <div>TournamentPage</div>;
 };
 
-export default NewTournamentPage;
+export default TournamentPage;

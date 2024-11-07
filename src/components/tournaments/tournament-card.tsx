@@ -12,13 +12,19 @@ const TournamentCard = () => {
           <p className="text-lg font-semibold">Tournament Name</p>
           <div className="flex items-center gap-1 text-green-400">
             <div className="size-2 rounded-full bg-green-500 animate-pulse"></div>
-            <p>open</p>
+            <p>Bid now</p>
           </div>
         </div>
+        <p className="text-xs hover:underline hover:text-purple w-fit">@host</p>
         <div className="w-full flex items-center justify-start gap-4">
           <p className="text-xs text-gray-400">Starts: 12/01/1999</p>
           <p className="text-xs text-gray-400">Ends: 12/01/1999</p>
         </div>
+        <div className="w-full flex text-sm pt-1 items-center justify-between">
+          <p className="text-orange-400">Entry Fee: 100</p>
+          <p className="text-green-400">Win upto: 100,000</p>
+        </div>
+
         <div className="flex gap-2 py-2">
           <div className="size-6 rounded-full bg-red-50"></div>
           <p className="font-semibold">PUBG</p>
