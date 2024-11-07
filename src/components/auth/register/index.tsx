@@ -40,15 +40,19 @@ const Register = () => {
       password,
     };
     startTransition(async () => {
-      const res = await fetch("http://localhost:3000/api/sign-up", {
-        method: "POST",
-        body: JSON.stringify(body),
-      }).then(async (res) => await res.json());
-      if (res) {
-        toast.info(res.message);
-      }
-      if (res.user._id) {
-        router.push("/login");
+      try {
+        const res = await fetch("http://localhost:3000/api/sign-up", {
+          method: "POST",
+          body: JSON.stringify(body),
+        }).then(async (res) => await res.json());
+        if (res) {
+          toast.info(res.message);
+        }
+        if (res.user._id) {
+          router.push("/login");
+        }
+      } catch (e) {
+        console.log(e);
       }
     });
   };

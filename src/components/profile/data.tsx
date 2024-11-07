@@ -12,8 +12,9 @@ const Data = () => {
       </div>
       <div className="w-full flex text-sm items-center gap-6">
         <div className="flex gap-1 items-center">
-          22
           <TbMilitaryRank size={18} className="text-gray-400" />
+          22
+          <span className="text-gray-400">Rank</span>
         </div>
         <p>
           234 <span className="text-gray-400">Tournaments</span>
