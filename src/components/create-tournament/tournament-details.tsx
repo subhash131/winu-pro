@@ -5,6 +5,7 @@ import Schedule from "./schedule";
 import TournamentName from "./tournament-name";
 import TournamentDescription from "./tournament-description";
 import CreateButton from "./create-button";
+import EntryFee, { fee } from "./entry-fee";
 
 const TournamentDetails = () => {
   const [name, setName] = useState<string>("");
@@ -13,6 +14,7 @@ const TournamentDetails = () => {
   const [visibility, setVisibility] = useState<"PUBLIC" | "PRIVATE">("PUBLIC");
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
+  const [selectedEntryFee, setSelectedEntryFee] = useState(0);
   return (
     <div className="size-full flex flex-col gap-2 pb-20">
       <Visibility setVisibility={setVisibility} visibility={visibility} />
@@ -25,6 +27,7 @@ const TournamentDetails = () => {
           setStreamLink(e.target.value);
         }}
       />
+      <EntryFee setSelectedEntryFee={setSelectedEntryFee} />
       <Schedule
         startDate={startDate}
         setStartDate={setStartDate}
