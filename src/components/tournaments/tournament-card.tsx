@@ -16,7 +16,7 @@ const TournamentCard = () => {
           </div>
         </div>
         <p className="text-xs hover:underline hover:text-purple w-fit">@host</p>
-        <div className="w-full flex items-center justify-start gap-4">
+        <div className="w-full flex items-center justify-between">
           <p className="text-xs text-gray-400">Starts: 12/01/1999</p>
           <p className="text-xs text-gray-400">Ends: 12/01/1999</p>
         </div>
