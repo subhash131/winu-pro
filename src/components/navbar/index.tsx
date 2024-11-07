@@ -1,8 +1,8 @@
 import React from "react";
 import { FaGamepad, FaUserAstronaut } from "react-icons/fa";
-import { HiMiniHome } from "react-icons/hi2";
 import NavItem from "./nav-item";
 import UserProfile from "./user-profile";
+import { GiWallet } from "react-icons/gi";
 
 const items = [
   // {
@@ -16,6 +16,12 @@ const items = [
     icon: FaGamepad,
     link: "/tournaments",
     iconSize: 20,
+  },
+  {
+    name: "Wallet",
+    icon: GiWallet,
+    link: "/wallet",
+    iconSize: 18,
   },
   {
     name: "Profile",

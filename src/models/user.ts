@@ -8,6 +8,12 @@ const userSchema = new Schema(
       required: [true, "Please provide an email"],
       unique: true,
     },
+    link: {
+      type: String,
+    },
+    location: {
+      type: String,
+    },
     username: {
       type: String,
       required: [true, "Please provide a username"],
