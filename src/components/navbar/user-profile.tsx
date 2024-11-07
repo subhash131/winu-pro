@@ -12,9 +12,8 @@ const UserProfile = () => {
         method: "POST",
       });
       if (res.status === 200) {
-        toast.success("Logged out!");
-
         router.replace("/");
+        toast.success("Logged out!");
       }
     });
   };

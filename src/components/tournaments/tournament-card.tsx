@@ -4,7 +4,7 @@ import Logo from "../ui/logo";
 const TournamentCard = () => {
   return (
     <div className="border rounded-lg border-active shrink-0 overflow-y-scroll no-scrollbar h-full w-full bg-foreground flex flex-col items-center overflow-hidden p-1  cursor-pointer">
-      <div className="w-full h-60 bg-gray-500 rounded-t-lg">
+      <div className="w-full h-60 bg-gray-800 rounded-t-lg">
         <Logo className="size-full" />
       </div>
       <div className="w-full flex flex-col">
