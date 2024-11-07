@@ -12,7 +12,7 @@ const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
         <Shortcut link="#" name="Clan">
           <GiFlamingTrident size={24} />
         </Shortcut>
-        <Shortcut link="/tournament/create" name="New tournament">
+        <Shortcut link="/tournament/create" name="Host tournament">
           <FiPlus size={24} />
         </Shortcut>
       </div>

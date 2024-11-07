@@ -12,7 +12,7 @@ export async function connect() {
       return;
     }
 
-    const { connection } = await mongoose.connect(MONGO_URI);
+    const { connection } = await mongoose.connect(MONGO_URI, { ssl: false });
 
     connection.on("connected", () => {
       console.log("MongoDB Connected");

@@ -1,8 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { BiSearch } from "react-icons/bi";
-import { GiBeveledStar } from "react-icons/gi";
 import Logo from "../ui/logo";
 
 const Search = () => {
@@ -15,7 +13,7 @@ const Search = () => {
        justify-center gap-1 active:scale-95 transition-all"
       >
         <Logo className="animate-spin [animation-duration:5s]" />
-        Host a tournament
+        Host tournament
       </Link>
       <div className="w-full flex items-center justify-end gap-2">
         <input
