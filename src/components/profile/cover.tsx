@@ -4,7 +4,7 @@ import { FiCopy } from "react-icons/fi";
 
 const Cover = () => {
   return (
-    <div className="size-full">
+    <div className="w-full h-fit">
       <div className="w-full h-60 overflow-hidden">
         <Image
           src="/logo-white.png"
