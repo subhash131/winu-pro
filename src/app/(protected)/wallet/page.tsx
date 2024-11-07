@@ -1,7 +1,8 @@
 import React from "react";
+import Wallet from "@/components/wallet";
 
 const WalletPage = () => {
-  return <div>WalletPage</div>;
+  return <Wallet />;
 };
 
 export default WalletPage;

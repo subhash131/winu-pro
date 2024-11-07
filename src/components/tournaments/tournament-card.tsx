@@ -4,10 +4,10 @@ import Logo from "../ui/logo";
 const TournamentCard = () => {
   return (
     <div className="border rounded-lg border-active shrink-0 overflow-y-scroll no-scrollbar h-full w-full bg-foreground flex flex-col items-center overflow-hidden p-1  cursor-pointer">
-      <div className="w-full h-60 bg-gray-800 rounded-t-lg">
+      <div className="w-full h-60 rounded-t-lg">
         <Logo className="size-full" />
       </div>
-      <div className="w-full flex flex-col">
+      <div className="w-full flex flex-col px-1">
         <div className="w-full items-center justify-between text-xs flex">
           <p className="text-lg font-semibold">Tournament Name</p>
           <div className="flex items-center gap-1 text-green-400">
@@ -21,7 +21,7 @@ const TournamentCard = () => {
           <p className="text-xs text-gray-400">Ends: 12/01/1999</p>
         </div>
         <div className="w-full flex text-sm pt-1 items-center justify-between">
-          <p className="text-orange-400">Entry Fee: 100</p>
+          <p className="text-orange-300">Entry Fee: 100</p>
           <p className="text-green-400">Win upto: 100,000</p>
         </div>
 
