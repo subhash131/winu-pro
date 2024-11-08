@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaTrophy } from "react-icons/fa";
 
@@ -14,9 +15,12 @@ const WithdrawCard = () => {
           <span className="text-sm text-orange-300"> coins</span>
         </p>
       </div>
-      <button className="bg-white w-full text-black py-1 rounded-lg font-semibold">
+      <Link
+        href="wallet/withdraw"
+        className="bg-white w-full text-black py-1 rounded-lg font-semibold text-center"
+      >
         Withdraw
-      </button>
+      </Link>
     </div>
   );
 };

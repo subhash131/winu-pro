@@ -11,8 +11,7 @@ export async function connect() {
       console.log("MongoDB is already connected.");
       return;
     }
-
-    const { connection } = await mongoose.connect(MONGO_URI, { ssl: false });
+    const { connection } = await mongoose.connect(MONGO_URI);
 
     connection.on("connected", () => {
       console.log("MongoDB Connected");

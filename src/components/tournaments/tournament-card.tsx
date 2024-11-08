@@ -21,8 +21,12 @@ const TournamentCard = () => {
           <p className="text-xs text-gray-400">Ends: 12/01/1999</p>
         </div>
         <div className="w-full flex text-sm pt-1 items-center justify-between">
-          <p className="text-orange-300">Entry Fee: 100</p>
-          <p className="text-green-400">Win upto: 100,000</p>
+          <p>
+            Entry Fee:<span className="text-orange-300"> 100 Coins</span>
+          </p>
+          <p>
+            Prizes: <span className="text-green-400"> 100,000</span>
+          </p>
         </div>
 
         <div className="flex gap-2 py-2">

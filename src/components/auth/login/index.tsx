@@ -28,16 +28,20 @@ const Login = () => {
       password,
     };
     startTransition(async () => {
-      const res = await fetch("http://localhost:3000/api/sign-in", {
-        method: "POST",
-        body: JSON.stringify(body),
-      });
-      if (res.status === 200) {
-        toast.success("Login successful");
-        router.push("/tournaments");
-      } else {
-        const data = await res.json();
-        toast.error(data.message);
+      try {
+        const res = await fetch("http://localhost:3000/api/sign-in", {
+          method: "POST",
+          body: JSON.stringify(body),
+        });
+        if (res.status === 200) {
+          toast.success("Login successful");
+          router.push("/tournaments");
+        } else {
+          const data = await res.json();
+          toast.error(JSON.stringify(data.message));
+        }
+      } catch (e) {
+        console.log(e);
       }
     });
   };
