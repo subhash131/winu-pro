@@ -8,11 +8,13 @@ import { useRouter } from "next/navigation";
 import { usePathname, useSearchParams } from "next/navigation";
 
 const Recharge = () => {
-  const [depositAmount, setDepositAmount] = useState<number>(0);
+  const searchParams = useSearchParams();
+  const [depositAmount, setDepositAmount] = useState<number>(
+    Number(searchParams.get("recharge"))
+  );
   const [showRechargeModal, setShowRechargeModal] = useState<boolean>(false);
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
@@ -57,7 +59,10 @@ const Recharge = () => {
               />
             </div>
             <AddMoney setValue={setDepositAmount} />
-            <RechargeButton setShowRechargeModal={setShowRechargeModal} />
+            <RechargeButton
+              setShowRechargeModal={setShowRechargeModal}
+              depositAmount={depositAmount}
+            />
           </div>
           <div className="w-full h-60 border border-dashed border-active rounded-lg"></div>
         </div>
