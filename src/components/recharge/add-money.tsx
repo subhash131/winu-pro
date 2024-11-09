@@ -10,7 +10,11 @@ const AddMoney = ({
       "data-increment"
     );
     if (!increment) return;
-    setValue((prev) => prev + Number(increment));
+    setValue((prev) => {
+      return Number(prev)
+        ? Number(prev) + Number(increment)
+        : Number(increment);
+    });
   };
   return (
     <div className="flex gap-4" onClick={handleClick}>

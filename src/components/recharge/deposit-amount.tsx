@@ -14,7 +14,10 @@ const DepositAmount = ({
       type="number"
       placeholder="0"
       value={value}
-      onChange={(e) => setValue(Number(e.target.value))}
+      onChange={(e) => {
+        const newValue = Number(e.target.value.toString().replace(/^0+/, ""));
+        setValue(newValue);
+      }}
     />
   );
 };
