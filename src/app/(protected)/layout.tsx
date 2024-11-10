@@ -8,7 +8,7 @@ const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="w-full min-h-screen h-full">
       <Navbar />
-      <div className="fixed bottom-8 left-8 flex flex-col gap-4">
+      <div className="fixed bottom-8 left-8 flex flex-col gap-4 z-50">
         <Shortcut link="#" name="Clan">
           <GiFlamingTrident size={24} />
         </Shortcut>

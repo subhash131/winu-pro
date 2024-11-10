@@ -10,7 +10,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 const Recharge = () => {
   const searchParams = useSearchParams();
   const [depositAmount, setDepositAmount] = useState<number>(
-    Number(searchParams.get("recharge"))
+    Number(searchParams.get("deposit"))
   );
   const [showRechargeModal, setShowRechargeModal] = useState<boolean>(false);
   const router = useRouter();
@@ -39,7 +39,7 @@ const Recharge = () => {
         pathname +
           "?" +
           createQueryString(
-            "recharge",
+            "deposit",
             depositAmount ? depositAmount.toString() : "0"
           )
       );
