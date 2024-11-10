@@ -32,7 +32,6 @@ const EntryFee = ({ setSelectedEntryFee }: EntryFeeProps) => {
       });
     }
     const fee = (e.target as HTMLDivElement).getAttribute("data-fee");
-
     setEntryFee((prev) => {
       if (!fee) return prev;
       const temp = prev.map(({ value }) => {
@@ -45,6 +44,7 @@ const EntryFee = ({ setSelectedEntryFee }: EntryFeeProps) => {
       });
       return temp;
     });
+    (feeRef.current as HTMLInputElement).value = "";
   };
   return (
     <div className="w-full px-2 flex flex-col gap-1" onClick={handleEntryFee}>
@@ -70,7 +70,6 @@ const EntryFee = ({ setSelectedEntryFee }: EntryFeeProps) => {
           className="px-2 py-0.5 border border-white rounded-lg outline-none text-black w-36 no-spinner font-semibold"
           placeholder="custom fee"
           type="number"
-          min={100}
           ref={feeRef}
         />
         <button
