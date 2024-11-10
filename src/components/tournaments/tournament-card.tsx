@@ -1,9 +1,13 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const TournamentCard = () => {
   return (
-    <div className="relative border rounded-lg border-active shrink-0 no-scrollbar h-full w-full bg-foreground flex flex-col items-center overflow-hidden cursor-pointer">
+    <Link
+      href="/tournaments/1"
+      className="relative border rounded-lg border-active shrink-0 no-scrollbar h-full w-full bg-foreground flex flex-col items-center overflow-hidden cursor-pointer"
+    >
       <div className="w-full h-60 rounded-t-lg flex items-center justify-center">
         <Image
           src="/logo-white.png"
@@ -39,7 +43,7 @@ const TournamentCard = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
