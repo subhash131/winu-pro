@@ -6,10 +6,7 @@ const TournamentForm = () => {
   return (
     <div className="w-full h-full min-h-screen flex flex-col py-8 px-24 gap-4 items-center text-start">
       <h2 className="text-xl font-semibold w-full pl-20">Host a Tournament</h2>
-      <div className=" flex gap-10">
-        <TournamentImage />
-        <TournamentDetails />
-      </div>
+      <TournamentDetails />
     </div>
   );
 };
