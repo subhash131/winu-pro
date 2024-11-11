@@ -6,6 +6,7 @@ import XionAbstraction from "@/provider/xion-abstraction";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import TanstackProvider from "@/provider/tanstack-provider";
 import ReduxProvider from "@/provider/redux-provider";
+import { EdgeStoreProvider } from "@/lib/edgestore";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -28,7 +29,9 @@ export default function RootLayout({
           <TanstackProvider>
             <NuqsAdapter>
               <Toaster />
-              <XionAbstraction>{children}</XionAbstraction>
+              <XionAbstraction>
+                <EdgeStoreProvider>{children}</EdgeStoreProvider>
+              </XionAbstraction>
             </NuqsAdapter>
           </TanstackProvider>
         </ReduxProvider>
