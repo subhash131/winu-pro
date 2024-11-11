@@ -7,20 +7,22 @@ import TournamentDescription from "./tournament-description";
 import CreateButton from "./create-button";
 import EntryFee from "./entry-fee";
 import TournamentImage from "./tournament-image";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { getTournamentById } from "@/actions/tournament/get-tournament-by-id";
 import { useDispatch } from "react-redux";
 import StreamLink from "./stream-link";
 import { setTournament } from "@/state-manager/features/tournament-form";
+import UpdateButton from "./update-button";
 
 const TournamentDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const pathname = usePathname();
   const { isPending, error, data } = useQuery({
     queryKey: ["tournament-data", id],
     queryFn: () => getTournamentById(id.toString()),
-    enabled: !!id,
+    enabled: pathname !== "/tournament/create",
   });
 
   useEffect(() => {
@@ -50,7 +52,11 @@ const TournamentDetails = () => {
         <Schedule />
         <TournamentDescription />
         {/* TODO:: add Matches */}
-        <CreateButton />
+        {pathname === "/tournament/create" ? (
+          <CreateButton />
+        ) : (
+          <UpdateButton />
+        )}
       </div>
     </div>
   );
