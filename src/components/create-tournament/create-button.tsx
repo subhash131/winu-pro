@@ -15,7 +15,7 @@ const CreateButton = () => {
     mutationFn: createTournament,
     onSuccess: (res) => {
       toast.info(res.message);
-      queryClient.invalidateQueries({ queryKey: ["create-tournament"] });
+      queryClient.invalidateQueries({ queryKey: ["tournament-data"] });
       router.replace(`/tournament/edit/${res.tournament._id}`);
     },
     onError: (error) => {
