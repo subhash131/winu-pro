@@ -1,7 +1,6 @@
 import React from "react";
 import { FaGamepad, FaUserAstronaut } from "react-icons/fa";
 import NavItem from "./nav-item";
-import UserProfile from "./user-profile";
 import { GiWallet } from "react-icons/gi";
 
 const items = [
@@ -47,7 +46,6 @@ const Navbar = () => {
             </NavItem>
           );
         })}
-        <UserProfile />
       </nav>
     </div>
   );
