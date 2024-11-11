@@ -18,34 +18,34 @@ export async function POST(req: NextRequest) {
   } = body;
 
   if (!name)
-    return NextResponse.json({ message: "Name is required" }, { status: 400 });
+    return NextResponse.json({ error: "Name is required" }, { status: 400 });
   if (!streamLink)
     return NextResponse.json(
-      { message: "Stream link is required" },
+      { error: "Stream link is required" },
       { status: 400 }
     );
   if (!startDate)
     return NextResponse.json(
-      { message: "Start date is required" },
+      { error: "Start date is required" },
       { status: 400 }
     );
   if (!endDate)
     return NextResponse.json(
-      { message: "End date is required" },
+      { error: "End date is required" },
       { status: 400 }
     );
   if (!host)
-    return NextResponse.json({ message: "Host is required" }, { status: 400 });
+    return NextResponse.json({ error: "Host is required" }, { status: 400 });
   if (!matches)
     return NextResponse.json(
-      { message: "Matches are required" },
+      { error: "Matches are required" },
       { status: 400 }
     );
   if (!image)
-    return NextResponse.json({ message: "Image is required" }, { status: 400 });
+    return NextResponse.json({ error: "Image is required" }, { status: 400 });
   if (!entryFee)
     return NextResponse.json(
-      { message: "Entry Fee is required" },
+      { error: "Entry Fee is required" },
       { status: 400 }
     );
 
