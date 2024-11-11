@@ -8,10 +8,11 @@ const TournamentSchema = new Schema(
     streamLink: { type: String, required: true },
     description: { type: String },
     host: { type: Schema.Types.ObjectId, ref: "User", required: true },
-    entryFee: { type: Number, default: 10 },
+    entryFee: { type: Number, required: true, default: 10 },
     visibility: { type: String, default: "PUBLIC" },
     image: { type: String },
-    clans: { type: [Schema.Types.ObjectId], ref: "Clan", required: true },
+    isActive: { type: Boolean, default: true },
+    matches: { type: [Schema.Types.ObjectId], ref: "Match", required: true },
   },
   { timestamps: true }
 );
