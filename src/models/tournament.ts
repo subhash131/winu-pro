@@ -1,6 +1,12 @@
 import mongoose, { model, Schema } from "mongoose";
+import { Tournament } from "../types";
 
-const TournamentSchema = new Schema(
+const TournamentSchema = new Schema<
+  Omit<Tournament, "host" | "matches"> & {
+    host: Schema.Types.ObjectId;
+    matches: Schema.Types.ObjectId[];
+  }
+>(
   {
     name: { type: String, required: true },
     startDate: { type: Date, required: true },
