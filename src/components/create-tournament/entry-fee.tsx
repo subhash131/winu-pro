@@ -1,18 +1,14 @@
 "use client";
+import { RootState } from "@/state-manager/store";
 import { Check } from "lucide-react";
 import React, { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setEntryFee as setSelectedEntryFee } from "@/state-manager/features/tournament-form";
 import { toast } from "sonner";
 
-type Fee = {
-  value: number;
-  selected: boolean;
-};
+const EntryFee = () => {
+  const dispatch = useDispatch();
 
-type EntryFeeProps = {
-  setSelectedEntryFee: React.Dispatch<React.SetStateAction<number>>;
-};
-
-const EntryFee = ({ setSelectedEntryFee }: EntryFeeProps) => {
   const [entryFee, setEntryFee] = useState(fee);
   const feeRef = useRef<HTMLInputElement>(null);
   const handleEntryFee = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -36,7 +32,8 @@ const EntryFee = ({ setSelectedEntryFee }: EntryFeeProps) => {
       if (!fee) return prev;
       const temp = prev.map(({ value }) => {
         if (value === Number(fee)) {
-          setSelectedEntryFee(value);
+          dispatch(setSelectedEntryFee(value));
+
           return { value, selected: true };
         } else {
           return { value, selected: false };
@@ -84,6 +81,11 @@ const EntryFee = ({ setSelectedEntryFee }: EntryFeeProps) => {
 };
 
 export default EntryFee;
+
+type Fee = {
+  value: number;
+  selected: boolean;
+};
 
 export const fee: Fee[] = [
   {
