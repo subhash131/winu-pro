@@ -1,15 +1,17 @@
 "use client";
+import { setVisibility } from "@/state-manager/features/tournament-form";
+import { RootState } from "@/state-manager/store";
 import React, { useState } from "react";
 import { FaCheck, FaLock } from "react-icons/fa";
 import { HiGlobeAsiaAustralia } from "react-icons/hi2";
 import { IoIosArrowDown } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
 
-type VisibilityProps = {
-  visibility: "PUBLIC" | "PRIVATE";
-  setVisibility: React.Dispatch<React.SetStateAction<"PUBLIC" | "PRIVATE">>;
-};
-
-const Visibility = ({ visibility, setVisibility }: VisibilityProps) => {
+const Visibility = () => {
+  const { visibility } = useSelector(
+    (state: RootState) => state.tournamentForm
+  );
+  const dispatch = useDispatch();
   const [visibilityCard, setVisibilityCard] = useState(false);
 
   return (
@@ -36,7 +38,7 @@ const Visibility = ({ visibility, setVisibility }: VisibilityProps) => {
           <div
             className="size-full px-4 py-2 flex items-center gap-4 hover:bg-active"
             onClick={() => {
-              setVisibility("PUBLIC");
+              dispatch(setVisibility("PUBLIC"));
             }}
           >
             <HiGlobeAsiaAustralia size={28} className="text-gray-300" />

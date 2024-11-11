@@ -1,7 +1,7 @@
 "use server";
-import { Tournament } from "@/types";
+import { TournamentForm } from "@/state-manager/features/tournament-form";
 
-export async function createTournament(tournament: Tournament) {
+export async function createTournament(tournament: TournamentForm) {
   try {
     const res = await fetch("http://localhost:3000/api/tournament/create", {
       method: "POST",

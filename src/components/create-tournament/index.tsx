@@ -1,5 +1,4 @@
 import React from "react";
-import TournamentImage from "./tournament-image";
 import TournamentDetails from "./tournament-details";
 
 const TournamentForm = () => {

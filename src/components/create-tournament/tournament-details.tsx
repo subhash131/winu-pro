@@ -1,82 +1,61 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Visibility from "./visibility";
 import Schedule from "./schedule";
 import TournamentName from "./tournament-name";
 import TournamentDescription from "./tournament-description";
 import CreateButton from "./create-button";
 import EntryFee from "./entry-fee";
-import { VisibilityT } from "@/types";
 import TournamentImage from "./tournament-image";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
+import { getTournamentById } from "@/actions/tournament/get-tournament-by-id";
+import { useDispatch } from "react-redux";
+import StreamLink from "./stream-link";
+import { setTournament } from "@/state-manager/features/tournament-form";
 
 const TournamentDetails = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
   const { isPending, error, data } = useQuery({
-    queryKey: ["repoData"],
-    queryFn: () =>
-      fetch("https://api.github.com/repos/TanStack/query").then((res) =>
-        res.json()
-      ),
+    queryKey: ["tournament-data", id],
+    queryFn: () => getTournamentById(id.toString()),
+    enabled: !!id,
   });
 
-  const [name, setName] = useState<string>("");
-  const [streamLink, setStreamLink] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
-  const [visibility, setVisibility] = useState<VisibilityT>("PUBLIC");
-  const [startDate, setStartDate] = useState<Date | undefined>(new Date());
-  const [endDate, setEndDate] = useState<Date | undefined>(new Date());
-  const [selectedEntryFee, setSelectedEntryFee] = useState(10);
+  useEffect(() => {
+    if (!data) return;
+    console.log(data);
+    dispatch(
+      setTournament({
+        ...data.tournament,
+      })
+    );
+  }, [data]);
 
-  if (error) {
+  if (id && error) {
     return <div>Failed to load! refresh the page again.</div>;
   }
 
+  if (id && isPending)
+    return (
+      <div className="w-full h-96 flex items-center justify-center">
+        Loading...
+      </div>
+    );
+
   return (
     <div className="flex gap-10">
-      {isPending && (
-        <div className="size-full absolute flex items-center justify-center top-0 left-0">
-          Loading...
-        </div>
-      )}
       <TournamentImage />
       <div className="size-full flex flex-col gap-2 pb-20">
-        <Visibility setVisibility={setVisibility} visibility={visibility} />
-        <TournamentName name={name} setName={setName} />
-        <input
-          className="bg-transparent outline-none px-2"
-          placeholder="Live stream link"
-          value={streamLink}
-          onChange={(e) => {
-            setStreamLink(e.target.value);
-          }}
-        />
-        <EntryFee setSelectedEntryFee={setSelectedEntryFee} />
-        <Schedule
-          startDate={startDate}
-          setStartDate={setStartDate}
-          endDate={endDate}
-          setEndDate={setEndDate}
-        />
-        <TournamentDescription
-          description={description}
-          setDescription={setDescription}
-        />
+        <Visibility />
+        <TournamentName />
+        <StreamLink />
+        <EntryFee />
+        <Schedule />
+        <TournamentDescription />
         {/* TODO:: add Matches */}
-        <CreateButton
-          name={name}
-          streamLink={streamLink}
-          description={description}
-          visibility={visibility}
-          startDate={startDate}
-          endDate={endDate}
-          entryFee={selectedEntryFee}
-          host=""
-          image=""
-          isActive={true}
-          matches={[]}
-        />
+        <CreateButton />
       </div>
     </div>
   );

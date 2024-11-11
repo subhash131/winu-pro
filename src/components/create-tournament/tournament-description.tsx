@@ -1,21 +1,21 @@
+import { setDescription } from "@/state-manager/features/tournament-form";
+import { RootState } from "@/state-manager/store";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-type TournamentDescriptionProps = {
-  description: string;
-  setDescription: React.Dispatch<React.SetStateAction<string>>;
-};
+const TournamentDescription = () => {
+  const { description } = useSelector(
+    (state: RootState) => state.tournamentForm
+  );
+  const dispatch = useDispatch();
 
-const TournamentDescription = ({
-  description,
-  setDescription,
-}: TournamentDescriptionProps) => {
   return (
     <textarea
       className="text-sm bg-transparent outline-none border rounded-lg border-active p-4 resize-none h-32"
       placeholder="Description"
       value={description}
       onChange={(e) => {
-        setDescription(e.target.value);
+        dispatch(setDescription(e.target.value));
       }}
     />
   );
