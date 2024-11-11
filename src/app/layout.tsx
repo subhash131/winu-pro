@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import XionAbstraction from "@/provider/xion-abstraction";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import TanstackProvider from "@/provider/tanstack-provider";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -22,10 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} bg-dark text-white`}>
-        <NuqsAdapter>
-          <Toaster />
-          <XionAbstraction>{children}</XionAbstraction>
-        </NuqsAdapter>
+        <TanstackProvider>
+          <NuqsAdapter>
+            <Toaster />
+            <XionAbstraction>{children}</XionAbstraction>
+          </NuqsAdapter>
+        </TanstackProvider>
       </body>
     </html>
   );
