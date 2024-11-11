@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 export const metadata: Metadata = {
   title: "WINU",
-  description: "A fantasy gaming app for e-sports",
+  description: "fantasy gaming app for e-sports",
 };
 
 export default function RootLayout({
