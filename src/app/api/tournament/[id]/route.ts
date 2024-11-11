@@ -9,8 +9,8 @@ export async function GET(
 ) {
   console.log("🚀 ~ id:", id);
   try {
-    const user = await Tournament.findById(id);
-    return NextResponse.json({ user }, { status: 200 });
+    const tournament = await Tournament.findById(id);
+    return NextResponse.json({ tournament }, { status: 200 });
   } catch (e) {
     console.log(e);
     return NextResponse.json(
