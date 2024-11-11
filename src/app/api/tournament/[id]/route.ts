@@ -7,7 +7,6 @@ export async function GET(
   req: NextRequest,
   { params: { id } }: { params: { id: string } }
 ) {
-  console.log("🚀 ~ id:", id);
   try {
     const tournament = await Tournament.findById(id);
     return NextResponse.json({ tournament }, { status: 200 });

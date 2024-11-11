@@ -11,7 +11,7 @@ const TournamentDescription = () => {
 
   return (
     <textarea
-      className="text-sm bg-transparent outline-none border rounded-lg border-active p-4 resize-none h-32"
+      className="text-sm bg-transparent outline-none border rounded-lg border-active p-4 resize-none h-32 no-scrollbar"
       placeholder="Description"
       value={description}
       onChange={(e) => {

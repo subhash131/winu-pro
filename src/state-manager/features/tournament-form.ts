@@ -8,7 +8,7 @@ export type TournamentForm = Omit<Tournament, "endDate" | "startDate"> & {
 
 const initialState: TournamentForm = {
   description: "",
-  entryFee: 10,
+  entryFee: 0,
   host: "",
   image: "",
   isActive: true,
@@ -16,8 +16,6 @@ const initialState: TournamentForm = {
   name: "",
   streamLink: "",
   visibility: "PUBLIC",
-  endDate: new Date().toISOString(),
-  startDate: new Date().toISOString(),
 };
 
 const tournamentForm = createSlice({

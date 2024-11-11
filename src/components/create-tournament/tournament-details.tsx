@@ -25,12 +25,7 @@ const TournamentDetails = () => {
 
   useEffect(() => {
     if (!data) return;
-    console.log(data);
-    dispatch(
-      setTournament({
-        ...data.tournament,
-      })
-    );
+    dispatch(setTournament(data.tournament));
   }, [data]);
 
   if (id && error) {

@@ -1,16 +1,22 @@
 "use client";
 import { RootState } from "@/state-manager/store";
 import { Check } from "lucide-react";
-import React, { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useRef, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { setEntryFee as setSelectedEntryFee } from "@/state-manager/features/tournament-form";
 import { toast } from "sonner";
 
+let feeFound = false;
+
 const EntryFee = () => {
+  const { entryFee: selectedEntryFee } = useSelector(
+    (state: RootState) => state.tournamentForm
+  );
   const dispatch = useDispatch();
 
   const [entryFee, setEntryFee] = useState(fee);
   const feeRef = useRef<HTMLInputElement>(null);
+
   const handleEntryFee = (e: React.MouseEvent<HTMLDivElement>) => {
     const type = (e.target as HTMLDivElement).getAttribute("data-type");
     if (type === "ADD") {
@@ -33,7 +39,6 @@ const EntryFee = () => {
       const temp = prev.map(({ value }) => {
         if (value === Number(fee)) {
           dispatch(setSelectedEntryFee(value));
-
           return { value, selected: true };
         } else {
           return { value, selected: false };
@@ -43,6 +48,26 @@ const EntryFee = () => {
     });
     (feeRef.current as HTMLInputElement).value = "";
   };
+
+  useEffect(() => {
+    if (selectedEntryFee && !feeFound) {
+      const updatedFee = fee.map(({ value }) => {
+        if (value === Number(selectedEntryFee)) {
+          feeFound = true;
+          return { value, selected: true };
+        } else {
+          return { value, selected: false };
+        }
+      });
+
+      if (!feeFound) {
+        feeFound = true;
+        updatedFee.push({ value: selectedEntryFee, selected: true });
+      }
+      setEntryFee(updatedFee);
+    }
+  }, [selectedEntryFee]);
+
   return (
     <div className="w-full px-2 flex flex-col gap-1" onClick={handleEntryFee}>
       <p className="text-gray-200">Entry Fee</p>

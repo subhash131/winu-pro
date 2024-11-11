@@ -25,6 +25,11 @@ const Schedule = () => {
     if (localEndDate) dispatch(setEndDate(localEndDate.toISOString()));
   }, [localStartDate, localEndDate]);
 
+  useEffect(() => {
+    if (startDate) setLocalStartDate(new Date(startDate));
+    if (endDate) setLocalEndDate(new Date(endDate));
+  }, [startDate, endDate]);
+
   return (
     <div className="h-fit gap-2 w-fit rounded-lg bg-active flex flex-col overflow-hidden py-2 px-3">
       <div className="w-full h-full flex gap-4 items-center justify-between">
