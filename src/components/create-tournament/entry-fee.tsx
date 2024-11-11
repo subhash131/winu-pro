@@ -3,18 +3,16 @@ import { RootState } from "@/state-manager/store";
 import { Check } from "lucide-react";
 import React, { useRef, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setEntryFee as setSelectedEntryFee } from "@/state-manager/features/tournament-form";
+import { setEntryFee } from "@/state-manager/features/tournament-form";
 import { toast } from "sonner";
-
-let feeFound = false;
+import { usePathname } from "next/navigation";
 
 const EntryFee = () => {
-  const { entryFee: selectedEntryFee } = useSelector(
-    (state: RootState) => state.tournamentForm
-  );
+  const { entryFee } = useSelector((state: RootState) => state.tournamentForm);
   const dispatch = useDispatch();
+  const pathname = usePathname();
 
-  const [entryFee, setEntryFee] = useState(fee);
+  const [localEntryFee, setLocalEntryFee] = useState(fee);
   const feeRef = useRef<HTMLInputElement>(null);
 
   const handleEntryFee = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -25,20 +23,20 @@ const EntryFee = () => {
         toast.error("Please enter valid fee");
         return;
       }
-      const feeExist = entryFee.find((fee) => fee.value === customFee);
+      const feeExist = localEntryFee.find((fee) => fee.value === customFee);
       if (feeExist) {
         return;
       }
-      setEntryFee((prev) => {
+      setLocalEntryFee((prev) => {
         return [...prev, { selected: false, value: Number(customFee) }];
       });
     }
     const fee = (e.target as HTMLDivElement).getAttribute("data-fee");
-    setEntryFee((prev) => {
+    setLocalEntryFee((prev) => {
       if (!fee) return prev;
       const temp = prev.map(({ value }) => {
         if (value === Number(fee)) {
-          dispatch(setSelectedEntryFee(value));
+          dispatch(setEntryFee(value));
           return { value, selected: true };
         } else {
           return { value, selected: false };
@@ -50,29 +48,30 @@ const EntryFee = () => {
   };
 
   useEffect(() => {
-    if (selectedEntryFee && !feeFound) {
-      const updatedFee = fee.map(({ value }) => {
-        if (value === Number(selectedEntryFee)) {
-          feeFound = true;
-          return { value, selected: true };
-        } else {
-          return { value, selected: false };
-        }
-      });
-
-      if (!feeFound) {
+    if (pathname === "/tournament/create") return;
+    console.log("🚀 ~ useEffect ~ pathname:", pathname);
+    let feeFound = false;
+    const updatedFee = fee.map(({ value }) => {
+      if (value === Number(entryFee)) {
         feeFound = true;
-        updatedFee.push({ value: selectedEntryFee, selected: true });
+        return { value, selected: true };
+      } else {
+        return { value, selected: false };
       }
-      setEntryFee(updatedFee);
+    });
+
+    if (!feeFound) {
+      feeFound = true;
+      updatedFee.push({ value: entryFee, selected: true });
     }
-  }, [selectedEntryFee]);
+    setLocalEntryFee(updatedFee);
+  }, [entryFee]);
 
   return (
     <div className="w-full px-2 flex flex-col gap-1" onClick={handleEntryFee}>
       <p className="text-gray-200">Entry Fee</p>
       <div className="flex gap-2">
-        {entryFee.map(({ selected, value }, idx) => {
+        {localEntryFee.map(({ selected, value }, idx) => {
           return (
             <button
               className={`${
