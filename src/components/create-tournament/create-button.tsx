@@ -1,12 +1,14 @@
 "use client";
 import React from "react";
-import { Tournament } from "../../types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createTournament } from "@/actions/tournament/create-tournament";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+import { RootState } from "@/state-manager/store";
 
-const CreateButton = (tournament: Tournament) => {
+const CreateButton = () => {
+  const tournament = useSelector((state: RootState) => state.tournamentForm);
   const router = useRouter();
   const queryClient = useQueryClient();
   const mutation = useMutation({
