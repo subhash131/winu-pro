@@ -1,16 +1,14 @@
+import { parseAsInteger, useQueryState } from "nuqs";
 import React from "react";
 
-const AddMoney = ({
-  setValue,
-}: {
-  setValue: React.Dispatch<React.SetStateAction<number>>;
-}) => {
+const AddMoney = () => {
+  const [_, setDepositAmount] = useQueryState("deposit", parseAsInteger);
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const increment = (e.target as HTMLDivElement).getAttribute(
       "data-increment"
     );
     if (!increment) return;
-    setValue((prev) => {
+    setDepositAmount((prev) => {
       return Number(prev)
         ? Number(prev) + Number(increment)
         : Number(increment);

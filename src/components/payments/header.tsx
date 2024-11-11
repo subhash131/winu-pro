@@ -1,12 +1,13 @@
 "use client";
+import { parseAsBoolean, useQueryState } from "nuqs";
 import React from "react";
 import { IoClose } from "react-icons/io5";
 
-const Header = ({
-  setShowRechargeModal,
-}: {
-  setShowRechargeModal: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+const Header = () => {
+  const [_, setShowRechargeModal] = useQueryState(
+    "recharge-modal",
+    parseAsBoolean
+  );
   return (
     <div className="w-full h-10 flex items-center justify-between">
       <p> Payment Method</p>

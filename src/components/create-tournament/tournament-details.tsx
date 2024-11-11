@@ -38,7 +38,7 @@ const TournamentDetails = () => {
         description={description}
         setDescription={setDescription}
       />
-      {/* TODO:: add teams */}
+      {/* TODO:: add Matches */}
       <CreateButton />
     </div>
   );
