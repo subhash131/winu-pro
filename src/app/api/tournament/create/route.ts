@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import Tournament from "@/models/tournament";
+import { connect } from "@/db/config";
 
+connect();
 export async function POST(req: NextRequest) {
   const body = await req.json();
   const {
@@ -18,34 +20,34 @@ export async function POST(req: NextRequest) {
   } = body;
 
   if (!name)
-    return NextResponse.json({ error: "Name is required" }, { status: 400 });
+    return NextResponse.json({ message: "Name is required" }, { status: 400 });
   if (!streamLink)
     return NextResponse.json(
-      { error: "Stream link is required" },
+      { message: "Stream link is required" },
       { status: 400 }
     );
   if (!startDate)
     return NextResponse.json(
-      { error: "Start date is required" },
+      { message: "Start date is required" },
       { status: 400 }
     );
   if (!endDate)
     return NextResponse.json(
-      { error: "End date is required" },
+      { message: "End date is required" },
       { status: 400 }
     );
-  if (!host)
-    return NextResponse.json({ error: "Host is required" }, { status: 400 });
+  // if (!host)
+  //   return NextResponse.json({ message: "Host is required" }, { status: 400 });
   if (!matches)
     return NextResponse.json(
-      { error: "Matches are required" },
+      { message: "Matches are required" },
       { status: 400 }
     );
-  if (!image)
-    return NextResponse.json({ error: "Image is required" }, { status: 400 });
+  // if (!image)
+  //   return NextResponse.json({ message: "Image is required" }, { status: 400 });
   if (!entryFee)
     return NextResponse.json(
-      { error: "Entry Fee is required" },
+      { message: "Entry Fee is required" },
       { status: 400 }
     );
 
@@ -57,12 +59,12 @@ export async function POST(req: NextRequest) {
     startDate,
     endDate,
     description,
-    image,
-    matches,
-    host,
+    image: "sub",
+    matches: [],
+    host: "672e5565b4faf4fb87827250",
     isActive,
   });
-  tournament.save();
+  await tournament.save();
   return NextResponse.json(
     { message: "New Tournament Created", tournament },
     { status: 201 }
