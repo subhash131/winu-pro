@@ -43,8 +43,8 @@ export async function POST(req: NextRequest) {
       { message: "Matches are required" },
       { status: 400 }
     );
-  // if (!image)
-  //   return NextResponse.json({ message: "Image is required" }, { status: 400 });
+  if (!image)
+    return NextResponse.json({ message: "Image is required" }, { status: 400 });
   if (!entryFee)
     return NextResponse.json(
       { message: "Entry Fee is required" },
@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
     startDate,
     endDate,
     description,
-    image: "sub",
+    image,
     matches: [],
     host: "672e5565b4faf4fb87827250",
     isActive,

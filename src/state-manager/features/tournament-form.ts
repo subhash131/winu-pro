@@ -10,7 +10,6 @@ const initialState: TournamentForm = {
   description: "",
   entryFee: 0,
   host: "",
-  image: "",
   isActive: true,
   matches: [],
   name: "",

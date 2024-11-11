@@ -5,7 +5,7 @@ export type Tournament = {
   streamLink: string;
   description: string;
   visibility: Visibility;
-  image: string;
+  image?: string;
   startDate?: Date;
   endDate?: Date;
   entryFee: number;
