@@ -14,7 +14,7 @@ const TournamentCard = ({
   image: string;
   _id: string;
   name: string;
-  host: string;
+  host: any;
   isActive: boolean;
 }) => {
   return (
@@ -35,7 +35,7 @@ const TournamentCard = ({
           <Logo className="size-full" />
         )}
       </div>
-      <div className="absolute size-full flex flex-col bg-gradient-to-b from-transparent to-foreground justify-between p-2">
+      <div className="absolute size-full flex flex-col bg-gradient-to-bl from-transparent to-foreground justify-between p-2">
         <div className="w-full items-start justify-between text-xs flex flex-col">
           <div className="flex size-full justify-between">
             <p className="text-lg font-semibold">{name}</p>
@@ -45,7 +45,7 @@ const TournamentCard = ({
             </div>
           </div>
           <p className="text-xs hover:underline hover:text-purple w-fit">
-            @{host}
+            @{host?.name}
           </p>
         </div>
         <div>
