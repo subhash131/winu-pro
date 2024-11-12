@@ -3,7 +3,9 @@ import React from "react";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { getTournamentById } from "@/actions/tournament/get-tournament-by-id";
-import Image from "next/image";
+import Header from "./header";
+import MyTeam from "./my-team";
+import HostData from "./host-data";
 
 const TournamentCard = () => {
   const { id } = useParams();
@@ -25,25 +27,23 @@ const TournamentCard = () => {
     );
 
   return (
-    <div className="w-full h-screen px-24 py-4">
-      <div className="w-full h-80 overflow-hidden rounded-lg bg-active relative">
-        <Image
-          src={data?.tournament?.image}
-          alt="tournament"
-          width={1}
-          height={1}
-          className="size-full object-cover"
+    <div className="w-full h-screen px-24 py-4 flex gap-10 overflow-y-scroll custom-scrollbar">
+      <div className="size-full flex flex-col gap-2 ">
+        <Header
+          image={data?.tournament?.image}
+          name={data?.tournament?.name}
+          description={data?.tournament?.description}
+          entryFee={data?.tournament?.entryFee}
         />
-        <div className="absolute size-full bg-gradient-to-bl from-[rgba(0,0,0,0.1)] to-foreground top-0 left-0 px-4 py-2">
-          <div className="w-full flex items-center justify-between">
-            <h3 className="text-2xl font-semibold">{data?.tournament?.name}</h3>
-            <div className="flex items-center gap-1 text-green-400">
-              <div className="size-2 rounded-full bg-green-500 animate-pulse" />
-              <p>live</p>
-            </div>
-          </div>
-        </div>
+        <HostData
+          startDate={data?.tournament?.startDate}
+          host={data?.tournament?.host.username}
+          endDate={data?.tournament?.endDate}
+          streamLink={data?.tournament?.streamLink}
+          hostImage={data?.tournament?.host.image}
+        />
       </div>
+      <MyTeam />
     </div>
   );
 };

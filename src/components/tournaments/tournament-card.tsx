@@ -45,7 +45,7 @@ const TournamentCard = ({
             </div>
           </div>
           <p className="text-xs hover:underline hover:text-purple w-fit">
-            @{host?.name}
+            @{host?.username}
           </p>
         </div>
         <div>
