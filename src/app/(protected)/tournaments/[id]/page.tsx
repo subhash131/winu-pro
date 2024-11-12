@@ -1,7 +1,8 @@
 import React from "react";
+import Tournament from "@/components/tournament";
 
 const TournamentPage = () => {
-  return <div>TournamentPage</div>;
+  return <Tournament />;
 };
 
 export default TournamentPage;
